@@ -57,7 +57,7 @@ x11-wm/fluxbox,
 # List of packages that would be added from chrooted system (comma separated)
 packages_to_add:
 ${Spike-menus},        #need ebuild or a sh to add the spike/pentoo menu-lets into xfce meus...
-${Spike-configs},   #need ebuild or a sh to add the spike pentest repo.
+${Spike-configs},   #need ebuild or a sh to add the spike pentest repo configs. any add skells.tweaks... 
 ${app-shells},
 ${app-admin},
 ${app-admin},
@@ -82,12 +82,14 @@ ${Sab_scanner},
 #Sab_Netcomms="curl xforward"
 
 Spike-menus=""  #spike menu packages skelleton adss security menus. 
-Spike-configs="" ,
+Spike-configs="" # items and skells for repo configs tweaks etc. 
 app-shells=",app-admin/eselect-sh,app-shells/zsh,app-shells/zsh-completion,app-shells/dash
 		app-shells/mksh"
 Sab_Forensics=",app-forensics/magicrescue,app-forensics/cmospwd,app-forensics/rkhunter,app-forensics/sleuthkit,
 app-forensics/autopsy,app-forensics/mac-robber,app-forensics/aide,app-forensics/rdd,"
 Sab_Pentest="
+
+Sab_mitm="net-analyzer/dsniff,net-analyzer/ettercap,net-analyzer/sslstrip,net-analyzer/sslsniff,net-misc/bridge-utils,net-wireless/karmetasploit,"
 
 Sab_radio=",net-wireless/gnuradio,net-wireless/rtl-sdr,net-wireless/op25,net-wireless/gr-osmosdr,net-wireless/chirp
 	media-radio/fldigi,net-wireless/gr-air-modes,net-wireless/virtualradar-bin,net-wireless/uhd,net-wireless/multimode,
