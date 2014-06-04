@@ -84,7 +84,7 @@ ${Sab_scanner},
 Spike-menus=""  #spike menu packages skelleton adss security menus. 
 Spike-configs="" # items and skells for repo configs tweaks etc. 
 app-shells=",app-admin/eselect-sh,app-shells/zsh,app-shells/zsh-completion,app-shells/dash
-		app-shells/mksh"
+,app-shells/mksh,app-shells/bash-completion"
 Sab_Forensics=",app-forensics/magicrescue,app-forensics/cmospwd,app-forensics/rkhunter,app-forensics/sleuthkit,
 app-forensics/autopsy,app-forensics/mac-robber,app-forensics/aide,app-forensics/rdd,"
 Sab_Pentest="
@@ -103,6 +103,77 @@ net-analyzer/wolpertinger,net-analyzer/wpscan,net-analyzer/zmap,www-apps/arachni
 Sab_rce="sys-apps/paxctl,sys-devel/prelink,dev-java/jad-bin,dev-util/emilpro,dev-util/ltrace,	dev-util/metasm,dev-util/strace,sys-devel/gdb"
 Sab_proxy=",net-proxy/3proxy,net-proxy/burpsuite,net-proxy/zaproxy,net-proxy/httpush,net-misc/iodine,net-misc/proxychains,
 ,net-misc/vidalia,net-proxy/mitmproxy,net-proxy/privoxy,net-proxy/ratproxy,net-proxy/redsocks,net-misc/tor,net-proxy/tsocks,"
+Sab_misc="	Pentoo misc meta ebuild
+Sab_WWW-COMS="www-client/links,www-client/lynx,www-servers/lighttpd, www-client/chromium,www-client/firefox,
+mail-client/thunderbird-bin mail-client/thunderbird,net-irc/hexchat,net-ftp/filezilla 
+net-ftp/ftp net-ftp/oftpd net-ftp/tftp-hpa net-irc/irssi"
+
+firewall="net-dns/dnsmasq,net-firewall/sanewall"
+FileSystems="sys-fs/jfsutils,sys-fs/reiser4progs,sys-fs/reiserfsprogs,sys-fs/squashfs-tools,sys-fs/exfat-utils, sys-fs/fuse-exfat"
+
+net-analyzer="net-analyzer/angst, net-analyzer/ftester ,net-analyzer/thc-ipv6 ,net-nds/jxplorer,
+net-analyzer/netcat6,net-analyzer/aimsniff,net-analyzer/arpwatch,net-analyzer/chaosreader,net-analyzer/dnsa,net-analyzer/dnsenum,
+net-analyzer/dnstracer,net-analyzer/etherape,net-analyzer/gnome-nettool,net-analyzer/mbrowse,net-analyzer/ntop,
+net-analyzer/scapy,net-analyzer/sniffit,net-analyzer/snmpenum,net-analyzer/ssltest,net-analyzer/tcptraceroute,
+net-analyzer/thcrut,net-misc/socat,net-analyzer/netdiscover,net-analyzer/ngrep,net-analyzer/snort,
+net-analyzer/tcpdump,net-analyzer/tcpreplay,net-analyzer/traceroute,net-analyzer/cloudshark,
+net-analyzer/wireshark,net-analyzer/xplico,net-nds/lat,net-analyzer/driftnet"
+#	net-nds/lat depends on mono
+#	net-analyzer/driftnet
+
+
+
+media-video/gtk-recordmydesktop
+media-video/qt-recordmydesktop
+app-office/libreoffice
+		app-editors/ghex
+		media-sound/alsamixergui
+		media-sound/audacious
+		net-ftp/gproftpd
+net-im/jitsi-bin
+		net-im/pidgin
+		
+		net-misc/grdesktop
+		
+
+	
+	app-editors/vim
+	app-misc/dradis
+	app-text/dos2unix
+	app-text/uudeview
+	app-text/wgetpaste
+	media-gfx/fbgrab
+	media-gfx/scrot
+	media-sound/sox
+	media-video/vlc
+net-dialup/linux-atm 
+	net-dialup/minicom
+	net-dialup/wvdial
+	net-dns/bind-tools
+
+	net-fs/nfs-utils
+
+	net-misc/axel
+	net-misc/curl
+	net-misc/ifenslave
+	net-misc/iperf
+	net-misc/iputils
+	net-misc/portspoof
+	net-misc/netkit-fingerd
+	net-misc/netkit-rsh
+	net-misc/netsed
+	net-misc/ntp
+	net-misc/openssh
+	net-misc/openvpn
+	net-misc/stunnel
+	net-misc/tcpick
+	net-misc/telnet-bsd
+	net-misc/vpnc
+	net-misc/whatmask
+	net-misc/whois
+	net-misc/wlan2eth
+	sys-power/powertop
+
 
 app-admin/testdisk,
 app-antivirus/clamav,
@@ -140,7 +211,7 @@ sys-apps/mlocate,
 sys-apps/gnome-disk-utility,
 sys-block/gparted,
 sys-fs/extundelete,
-www-client/chromium,
+
 x11-libs/xcb-util-image,
 x11-libs/xcb-util-keysyms,
 x11-libs/xcb-util-wm,
@@ -170,8 +241,8 @@ xfce-extra/tumbler
 net-print/samsung-unified-linux-driver
 			mail-client/thunderbird
 			media-sound/picard
-			www-client/firefox
-			net-ftp/filezilla
+			
+			
 			www-client/chromium
 			app-office/libreoffice
 			app-emulation/virtualbox[extensions]
@@ -229,7 +300,7 @@ net-wireless/aircrack-ng[airdrop-ng]
 	##Pentoo  system##
 	!livecd-stage1? ( video_cards_virtualbox? ( app-emulation/virtualbox-guest-additions )
 			video_cards_nvidia? ( x11-misc/bumblebee ) )
-	app-shells/bash-completion
+	
 	app-portage/portage-utils
 	|| ( app-admin/syslog-ng virtual/logger )
 	|| ( sys-process/fcron virtual/cron )
@@ -298,13 +369,9 @@ net-wireless/aircrack-ng[airdrop-ng]
 	sys-apps/sysvinit
 	sys-devel/crossdev
 	sys-devel/gettext
-	sys-fs/jfsutils
-	sys-fs/reiser4progs
-	sys-fs/reiserfsprogs
-	sys-fs/squashfs-tools
-	sys-fs/exfat-utils
-	sys-fs/fuse-exfat
-	!bindist? ( !arm? ( www-plugins/adobe-flash ) )
+
+www-plugins/adobe-flash
+	
 
 # Custom shell call to packages add (default is: equo install)
 # custom_packages_add_cmd:
