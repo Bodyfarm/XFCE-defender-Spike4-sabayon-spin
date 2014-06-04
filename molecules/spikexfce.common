@@ -56,13 +56,13 @@ x11-wm/fluxbox,
 
 # List of packages that would be added from chrooted system (comma separated)
 packages_to_add:
+${xfce-main},
 ${Spike-menus},        #need ebuild or a sh to add the spike/pentoo menu-lets into xfce meus...
 ${Spike-configs},   #need ebuild or a sh to add the spike pentest repo configs. any add skells.tweaks... 
 ${app-shells},
 ${app-admin},
 ${app-admin},
 ${Sab_Forensics},
-
 ${app-admin},
 ${app-admin},
 ${app-admin},
@@ -70,29 +70,67 @@ ${app-admin},
 ${app-admin},
 ${Sab_scanner},
 
-### stealind ideas from the make.conf...... make maint with the extra sec pkgs eassier 
+### stealing ideas from the make.conf...... make maint with the extra sec pkgs easier 
+xfce-main="x11-libs/xcb-util-image,x11-libs/xcb-util-keysyms,x11-libs/xcb-util-wm,x11-terms/terminator,
+x11-misc/pcmanfm,x11-wm/awesome,xfce-extra/thunar-volman,xfce-extra/tumbler"
 
-#SAB_Security="-systemd smartcard sasl"
-#SAB_DEV="aura gnome-keyring server ccache pmake cmake automake kdevelop syslog vala java javascript fakevim pygments"
+SAB_Security=" smartcard sasl"
+SAB_DEV="app-portage/gentoolkit,app-portage/eix,app-portage/porthole,app-portage/gentoolkit-dev,app-portage/overlint app-portage/genlop,
+app-portage/pfl,app-portage/portage-utils,sys-devel/gettext app-portage/mirrorselect,app-portage/layman,app-portage/smart-live-rebuild
+dev-util/checkbashisms,sys-devel/distcc,dev-util/catalyst
+aura gnome-keyring server ccache pmake cmake automake kdevelop syslog vala java javascript fakevim pygments"
+
 #SAB_virtualM="llvm gold vhosts virtualbox qemu"
-#SAB_RCS="cvs bazaar git mercurial subversion cvsgraph "
-#SAB_MEDIA_test="imagemagick gstreamer gtk3 id3tag tagliblisten-queue introspection  lastfm"
+SAB_RCS="dev-vcs/cvs dev-vcs/bazaar dev-vcs/git dev-vcs/mercurial dev-vcs/subversion dev-vcs/cvsgraph  "
+
+SAB_MEDIA_=",media-video/gtk-recordmydesktop,media-video/qt-recordmydesktop,media-sound/alsamixergui,media-sound/audacious,media-gfx/fbgrab,
+media-gfx/scrot,media-sound/sox,media-video/vlc media-gfx/picasa,media-gfx/pqstego,media-sound/pavucontrol,media-video/vlc,media-video/xine-ui,
+media-video/mplayer,media-sound/picard media-sound/alsa-utils"
+#imagemagick gstreamer gtk3 id3tag tagliblisten-queue introspection  lastfm"
+
+SAB_Fonts=".media-fonts/droid,media-fonts/dejavu,media-fonts/font-misc-misc"
+
 #SAB_Distro_deploy="antimater molecule matter"
 #SAB_DBASE="sqlite sqlite3 mysql mysqli taglib berkdb maradb postgres "
-#Sab_Netcomms="curl xforward"
+#Sab_Netcomms="gnome-extra/nm-applet net-ftp/gproftpd,net-misc/grdesktop"
 
-Spike-menus=""  #spike menu packages skelleton adss security menus. 
+Spike-menus=""  #spike menu packages skeleton adss security menus. 
 Spike-configs="" # items and skells for repo configs tweaks etc. 
 app-shells=",app-admin/eselect-sh,app-shells/zsh,app-shells/zsh-completion,app-shells/dash
 ,app-shells/mksh,app-shells/bash-completion"
+
 Sab_Forensics=",app-forensics/magicrescue,app-forensics/cmospwd,app-forensics/rkhunter,app-forensics/sleuthkit,
 app-forensics/autopsy,app-forensics/mac-robber,app-forensics/aide,app-forensics/rdd,"
-Sab_Pentest="
+	app-admin/testdisk
+	app-crypt/xor-analyze
+app-forensics/cmospwd
+	app-forensics/dff
+	app-forensics/foremost
+	app-forensics/galleta
+	app-forensics/inception
+	app-forensics/libvshadow
+	app-forensics/make-pdf
+	app-forensics/memdump
+	app-forensics/origami-pdf
+	app-forensics/pasco
+	app-forensics/pdf-parser
+	app-forensics/pdfid
+	app-forensics/volatility
+	app-misc/hivex
+	sys-apps/dcfldd
+	sys-fs/dd-rescue
+	sys-fs/ddrescue"
+
+Sab_DB_Pentest="dev-db/minimysqlator,dev-db/mssqlscan,dev-db/oat,dev-db/sqid,dev-db/sqlbf,
+dev-db/sqlibf,dev-db/sqlmap,net-analyzer/sqlninja,dev-db/sqlitebrowser"
+Sab_Pentest="app-exploits/packetstormexploits-meta,net-analyzer/armitage,net-analyzer/set,app-exploits/shellstorm,
+app-forensics/make-pdf,net-analyzer/davtest,net-analyzer/inguma,net-analyzer/metasploit:4.9
+,net-analyzer/metasploit,net-analyzer/w3af,net-analyzer/yersinia,net-fs/winexe,net-misc/raccess,www-apps/beef"
 
 Sab_mitm="net-analyzer/dsniff,net-analyzer/ettercap,net-analyzer/sslstrip,net-analyzer/sslsniff,net-misc/bridge-utils,net-wireless/karmetasploit,"
 
 Sab_radio=",net-wireless/gnuradio,net-wireless/rtl-sdr,net-wireless/op25,net-wireless/gr-osmosdr,net-wireless/chirp
-	media-radio/fldigi,net-wireless/gr-air-modes,net-wireless/virtualradar-bin,net-wireless/uhd,net-wireless/multimode,
+,media-radio/fldigi,net-wireless/gr-air-modes,net-wireless/virtualradar-bin,net-wireless/uhd,net-wireless/multimode,
 net-wireless/gqrx,net-analyzer/gsm-receiver,net-wireless/hackrf-tools,net-analyzer/multimon-ng"
 
 Sab_scanner=",dev-util/skipfish,net-analyzer/enum4linux,net-analyzer/firewalk,net-analyzer/hunt,
@@ -100,80 +138,50 @@ net-analyzer/ike-scan,net-analyzer/nbtscan,	net-analyzer/nikto,net-analyzer/nmap
 net-analyzer/onesixtyone,	net-analyzer/ppscan,net-analyzer/scanssh,net-analyzer/upnpscan,net-analyzer/wapiti,	net-analyzer/webshag,
 net-analyzer/wolpertinger,net-analyzer/wpscan,net-analyzer/zmap,www-apps/arachni,"
 
-Sab_rce="sys-apps/paxctl,sys-devel/prelink,dev-java/jad-bin,dev-util/emilpro,dev-util/ltrace,	dev-util/metasm,dev-util/strace,sys-devel/gdb"
+Sab_rce="sys-apps/paxctl,sys-devel/prelink,dev-java/jad-bin,dev-util/emilpro,dev-util/ltrace,dev-util/metasm,dev-util/strace,sys-devel/gdb"
 Sab_proxy=",net-proxy/3proxy,net-proxy/burpsuite,net-proxy/zaproxy,net-proxy/httpush,net-misc/iodine,net-misc/proxychains,
 ,net-misc/vidalia,net-proxy/mitmproxy,net-proxy/privoxy,net-proxy/ratproxy,net-proxy/redsocks,net-misc/tor,net-proxy/tsocks,"
-Sab_misc="	Pentoo misc meta ebuild
+
+Sab_misc="	
+
 Sab_WWW-COMS="www-client/links,www-client/lynx,www-servers/lighttpd, www-client/chromium,www-client/firefox,
 mail-client/thunderbird-bin mail-client/thunderbird,net-irc/hexchat,net-ftp/filezilla 
-net-ftp/ftp net-ftp/oftpd net-ftp/tftp-hpa net-irc/irssi"
+net-ftp/ftp net-ftp/oftpd net-ftp/tftp-hpa net-irc/irssi,net-im/jitsi-bin,net-im/pidgin www-plugins/adobe-flash,www-plugins/google-talkplugin,net-p2p/mktorrent"
 
 firewall="net-dns/dnsmasq,net-firewall/sanewall"
-FileSystems="sys-fs/jfsutils,sys-fs/reiser4progs,sys-fs/reiserfsprogs,sys-fs/squashfs-tools,sys-fs/exfat-utils, sys-fs/fuse-exfat"
+FileSystems="sys-fs/jfsutils,sys-fs/reiser4progs,sys-fs/reiserfsprogs,sys-fs/squashfs-tools,sys-fs/exfat-utils, sys-fs/fuse-exfat net-fs/nfs-utils sys-fs/extundelete,
+sys-fs/sshfs-fuse,sys-fs/cryptsetup,net-fs/mount-cifs,net-fs/sambanet-fs/curlftpfs sys-fs/zfs"
 
 net-analyzer="net-analyzer/angst, net-analyzer/ftester ,net-analyzer/thc-ipv6 ,net-nds/jxplorer,
-net-analyzer/netcat6,net-analyzer/aimsniff,net-analyzer/arpwatch,net-analyzer/chaosreader,net-analyzer/dnsa,net-analyzer/dnsenum,
-net-analyzer/dnstracer,net-analyzer/etherape,net-analyzer/gnome-nettool,net-analyzer/mbrowse,net-analyzer/ntop,
-net-analyzer/scapy,net-analyzer/sniffit,net-analyzer/snmpenum,net-analyzer/ssltest,net-analyzer/tcptraceroute,
-net-analyzer/thcrut,net-misc/socat,net-analyzer/netdiscover,net-analyzer/ngrep,net-analyzer/snort,
-net-analyzer/tcpdump,net-analyzer/tcpreplay,net-analyzer/traceroute,net-analyzer/cloudshark,
-net-analyzer/wireshark,net-analyzer/xplico,net-nds/lat,net-analyzer/driftnet"
+net-analyzer/netcat6,net-analyzer/aimsniff,net-analyzer/arpwatch,net-analyzer/chaosreader,net-analyzer/dnsa,
+net-analyzer/dnsenum,net-analyzer/dnstracer,net-analyzer/etherape,net-analyzer/gnome-nettool,
+net-analyzer/mbrowse,net-analyzer/ntop,net-analyzer/scapy,net-analyzer/sniffit,net-analyzer/snmpenum,
+net-analyzer/ssltest,net-analyzer/tcptraceroute,net-analyzer/thcrut,net-misc/socat,
+net-analyzer/netdiscover,net-analyzer/ngrep,net-analyzer/snort,net-analyzer/tcpdump,net-analyzer/tcpreplay,
+net-analyzer/traceroute,net-analyzer/cloudshark,net-analyzer/wireshark,net-analyzer/xplico,net-nds/lat,net-analyzer/driftnet"
 #	net-nds/lat depends on mono
 #	net-analyzer/driftnet
-
-
-
-media-video/gtk-recordmydesktop
-media-video/qt-recordmydesktop
-app-office/libreoffice
-		app-editors/ghex
-		media-sound/alsamixergui
-		media-sound/audacious
-		net-ftp/gproftpd
-net-im/jitsi-bin
-		net-im/pidgin
-		
-		net-misc/grdesktop
-		
-
+net-misc=",net-misc/axel,net-misc/curl,net-misc/ifenslave,net-misc/iperf,net-misc/iputils,net-misc/portspoof,net-misc/netkit-fingerd,net-misc/netkit-rsh
+net-misc/netsed,net-misc/ntp,net-misc/openssh,net-misc/openvpn,net-misc/stunnel,net-misc/tcpick,net-misc/telnet-bsd,net-misc/vpnc,
+net-misc/whatmask,net-misc/whois,net-misc/wlan2ethnet-misc/dropbox,net-misc/knock,"
 	
-	app-editors/vim
-	app-misc/dradis
-	app-text/dos2unix
-	app-text/uudeview
-	app-text/wgetpaste
-	media-gfx/fbgrab
-	media-gfx/scrot
-	media-sound/sox
-	media-video/vlc
+	sys-power/powertop
+
+Sab_cracking=",app-crypt/pyrit,app-crypt/hashcat-guiapp-crypt/cuda-rarcrypt,net-analyzer/authforce,app-crypt/md5bf,
+app-crypt/hashkillapp-crypt/SIPcrack,app-crypt/chntpw,app-crypt/johntheripper,app-crypt/ophcrack,
+app-dicts/raft-wordlists,app-text/cewl,net-analyzer/hydra,net-analyzer/medusa,net-analyzer/ncrack,net-analyzer/thc-pptp-bruter,net-misc/rdesktop-brute
+app-crypt/fcrackzip,app-crypt/gifshuffle,app-crypt/pdfcrack,"
+
+Sab_crypto="app-crypt/steghide,app-crypt/truecrypt,app-crypt/steghide app-crypt/asleap,app-crypt/openvpn-blacklist,app-crypt/gnupg,"
+
+app-office="app-office/libreoffice,app-editors/ghex,app-editors/vim
+app-misc/dradis,app-text/dos2unix,app-text/uudeview,app-text/wgetpaste,app-editors/nano"
+
+
 net-dialup/linux-atm 
 	net-dialup/minicom
 	net-dialup/wvdial
 	net-dns/bind-tools
-
-	net-fs/nfs-utils
-
-	net-misc/axel
-	net-misc/curl
-	net-misc/ifenslave
-	net-misc/iperf
-	net-misc/iputils
-	net-misc/portspoof
-	net-misc/netkit-fingerd
-	net-misc/netkit-rsh
-	net-misc/netsed
-	net-misc/ntp
-	net-misc/openssh
-	net-misc/openvpn
-	net-misc/stunnel
-	net-misc/tcpick
-	net-misc/telnet-bsd
-	net-misc/vpnc
-	net-misc/whatmask
-	net-misc/whois
-	net-misc/wlan2eth
-	sys-power/powertop
-
 
 app-admin/testdisk,
 app-antivirus/clamav,
@@ -181,93 +189,58 @@ app-antivirus/clamtk,
 app-arch/xarchiver,
 app-cdr/xfburn,
 
-app-crypt/chntpw,
-app-crypt/fcrackzip,
-app-crypt/johntheripper,
-app-crypt/gifshuffle,
-app-crypt/pdfcrack,
 app-misc/screen,
 dev-util/geany,
 dev-util/geany-plugins,
-gnome-extra/nm-applet,
-dev-vcs/git,
-net-analyzer/traceroute,
+
 net-libs/libnet,
 net-libs/netwib,
-net-misc/knock,
-media-fonts/droid,
-media-gfx/picasa,
-media-gfx/pqstego,
-media-sound/pavucontrol,
-media-video/vlc,
-net-analyzer/nmap,
-net-analyzer/netcat6,
-net-irc/irssi,
-net-analyzer/wireshark,
-net-analyzer/tcpdump,
-net-misc/dropbox,
+
+
 net-wireless/aircrack-ng,
 sys-apps/mlocate,
 sys-apps/gnome-disk-utility,
 sys-block/gparted,
-sys-fs/extundelete,
 
-x11-libs/xcb-util-image,
-x11-libs/xcb-util-keysyms,
-x11-libs/xcb-util-wm,
-x11-terms/terminator,
-x11-misc/pcmanfm,
-x11-wm/awesome,
-xfce-extra/thunar-volman,
-xfce-extra/tumbler
 
 #### pentoo zero system
 	gnome-extra/gnome-media
-		dev-vcs/mercurial
+		
 		app-arch/p7zip
 		net-dns/dnsmasq
-		app-portage/gentoolkit-dev
-		app-portage/overlint
+		
 		app-misc/fslint
 		app-doc/pms
-		dev-vcs/cvs
+		
 		net-misc/keychain
-		app-portage/pfl
-		app-portage/genlop
-		dev-util/checkbashisms
-		sys-devel/distcc
-		nu? ( dev-util/catalyst
-			net-p2p/mktorrent
+
+		
 net-print/samsung-unified-linux-driver
-			mail-client/thunderbird
-			media-sound/picard
 			
 			
-			www-client/chromium
-			app-office/libreoffice
+
 			app-emulation/virtualbox[extensions]
 			sys-apps/preload
 			x11-misc/slim
-			www-plugins/google-talkplugin
+			
 		
 			app-emulation/wine
 			media-gfx/gimp
 			x11-apps/mesa-progs
-			media-video/xine-ui
-			media-video/mplayer
+			
 			net-wireless/hidclient
 			
 #****Tribe meta*****
 net-wireless/aircrack-ng[airdrop-ng]
-	app-crypt/truecrypt
+	
 	app-arch/p7zip
 	net-irc/ngircd
-	app-crypt/steghide
+	
 	virtual/jdk
-	net-misc/tor"
+	"
 	
 	#****wifi pentoo****
- cuda? ( app-crypt/pyrit )
+ cuda? (  )
 			net-wireless/wifite
 		drivers? (
 			|| (
@@ -280,7 +253,7 @@ net-wireless/aircrack-ng[airdrop-ng]
 		)
 	)
 	gps? ( sci-geosciences/gpsd )
-	app-crypt/asleap
+	
 	net-dialup/freeradius[wpe?]
 	net-wireless/aircrack-ng
 	net-wireless/airsnort
@@ -301,7 +274,7 @@ net-wireless/aircrack-ng[airdrop-ng]
 	!livecd-stage1? ( video_cards_virtualbox? ( app-emulation/virtualbox-guest-additions )
 			video_cards_nvidia? ( x11-misc/bumblebee ) )
 	
-	app-portage/portage-utils
+	
 	|| ( app-admin/syslog-ng virtual/logger )
 	|| ( sys-process/fcron virtual/cron )
 	sys-apps/gptfdisk
@@ -312,9 +285,7 @@ net-wireless/aircrack-ng[airdrop-ng]
 	app-arch/unrar
 	app-arch/unzip
 	app-arch/sharutils
-	app-portage/gentoolkit
-	app-portage/eix
-	app-portage/porthole
+
 	windows-compat? ( app-emulation/wine
 		amd64? ( dev-lang/mono ) )
 	sys-apps/pciutils
@@ -323,8 +294,8 @@ net-wireless/aircrack-ng[airdrop-ng]
 	sys-apps/usb_modeswitch
 	!arm? ( sys-apps/microcode-data
 		sys-boot/syslinux )
-	net-fs/curlftpfs
-	sys-fs/sshfs-fuse
+	
+	
 	sys-kernel/linux-firmware
 	sys-libs/gpm
 	!arm? ( sys-power/acpid[pentoo] )
@@ -332,29 +303,24 @@ net-wireless/aircrack-ng[airdrop-ng]
 	sys-process/htop
 	sys-process/iotop
 	sys-apps/openrc[pentoo]
-	app-crypt/gnupg
+	
 	sys-apps/hdparm
-	!arm? ( sys-boot/efibootmgr )
-	sys-fs/cryptsetup
+	
+	
 	sys-process/lsof
-	!arm? ( sys-kernel/pentoo-sources )
-	app-portage/mirrorselect
-	!livecd-stage1? ( amd64? ( sys-fs/zfs ) )
-	app-crypt/openvpn-blacklist
+sys-kernel/pentoo-sources
+	
+
+	
 	app-admin/localepurge
-	app-editors/nano
+	
 	app-misc/mc
 	app-misc/screen
-	app-portage/layman
-	app-portage/smart-live-rebuild
-	dev-vcs/subversion
-	media-fonts/dejavu
-	media-fonts/font-misc-misc
-	media-sound/alsa-utils
+
 	net-dialup/lrzsz
 	net-dialup/ppp
 	net-firewall/iptables
-	|| ( net-fs/mount-cifs net-fs/samba )
+	|| (  )
 	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/vconfig
@@ -367,10 +333,9 @@ net-wireless/aircrack-ng[airdrop-ng]
 	sys-apps/iproute2
 	sys-apps/fbset
 	sys-apps/sysvinit
-	sys-devel/crossdev
-	sys-devel/gettext
 
-www-plugins/adobe-flash
+
+
 	
 
 # Custom shell call to packages add (default is: equo install)
